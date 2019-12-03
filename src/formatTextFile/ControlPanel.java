@@ -1,4 +1,3 @@
-//File 2
 package formatTextFile;
 
 import java.awt.Dimension;

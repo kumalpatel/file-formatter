@@ -1,4 +1,3 @@
-//File 3
 package formatTextFile;
 
 import java.awt.BorderLayout;

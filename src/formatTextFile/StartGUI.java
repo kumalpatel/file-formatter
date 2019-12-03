@@ -1,9 +1,4 @@
-// File 1
 package formatTextFile;
-
-//         Name: Gabriel Anderson
-//  Description: The StartGUI class creates a controlpanel and
-//               adds it as its Applet content and also sets its size.
 
 import javax.swing.JApplet;
 
