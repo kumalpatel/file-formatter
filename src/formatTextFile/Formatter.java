@@ -20,6 +20,7 @@ public class Formatter {
 		indexLength = "     "; // 5 spaces long
 	}
 
+	
 	public void readFile() {
 		BufferedReader reader;
 		try {

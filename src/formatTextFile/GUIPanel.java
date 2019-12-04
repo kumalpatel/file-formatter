@@ -14,7 +14,7 @@ public class GUIPanel extends JPanel {
 	// components of the panel
 	private JButton start, clear;
 	private JLabel label1, label2;
-	private JLabel message;
+	private JLabel message;	// not placed yet
 	private JPanel buttons1;
 	private JTextField field1, field2;
 
