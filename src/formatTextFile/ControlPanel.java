@@ -9,7 +9,7 @@ public class ControlPanel extends JPanel {
 	private int width, height;
 	private int panelNum;
 
-	// The constructor creates creates 2 panels and
+	// The constructor creates 2 panels and
 	// control panels that control their movement, and organize them using a layout
 	public ControlPanel(int width, int height) {
 		this.width = width;
