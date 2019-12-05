@@ -92,9 +92,10 @@ public class GUIPanel extends JPanel {
 				// if there are no error messages, 
 				// then it's all clear for formatting
 				if(message.getText().contentEquals("")) {
-					
+					doc.createOutput();
 					
 				}
+				
 				
 			} else if (action == clear) {
 				field1.setText("");
@@ -103,4 +104,5 @@ public class GUIPanel extends JPanel {
 			}
 		}
 	} // end of ButtonListener
+}
 
