@@ -56,6 +56,8 @@ public class GUIPanel extends JPanel {
 		panel4.add(label2, BorderLayout.NORTH);
 		panel4.add(field2, BorderLayout.SOUTH);
 
+		message = new JLabel();
+
 		JPanel panel6 = new JPanel();
 		panel6.setLayout(new GridLayout(2, 1));
 		panel6.add(panel3);
@@ -101,4 +103,4 @@ public class GUIPanel extends JPanel {
 			}
 		}
 	} // end of ButtonListener
-}
+
