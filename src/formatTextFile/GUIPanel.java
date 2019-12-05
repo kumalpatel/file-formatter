@@ -59,10 +59,13 @@ public class GUIPanel extends JPanel {
 		panel4.add(label2, BorderLayout.NORTH);
 		panel4.add(field2, BorderLayout.SOUTH);
 
+		label3 = new JLabel();
+
 		JPanel panel6 = new JPanel();
-		panel6.setLayout(new GridLayout(2, 1));
+		panel6.setLayout(new GridLayout(3, 1));
 		panel6.add(panel3);
 		panel6.add(panel4);
+		panel6.add(label3);
 		panel6.add(label3);
 
 		JPanel panel5 = new JPanel();
@@ -84,13 +87,19 @@ public class GUIPanel extends JPanel {
 			if (action == start) {// wPanel.resume();
 				String inputFileName = field1.getText();
 				String outputFileName = field2.getText();
+				// setup Formatter class
 				Formatter doc = new Formatter(inputFileName, outputFileName);
 				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
+				// check for initial errors
+				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
+				doc.readFile();
+
 			} else if (action == clear) {
 				field1.setText("");
 				field2.setText("");
 			} else if (action == quit) {
 				System.exit(0);
+				label3.setText("");
 			}
 		}
 	} // end of ButtonListener
