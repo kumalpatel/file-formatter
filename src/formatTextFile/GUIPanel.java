@@ -60,6 +60,7 @@ public class GUIPanel extends JPanel {
 		panel6.setLayout(new GridLayout(2, 1));
 		panel6.add(panel3);
 		panel6.add(panel4);
+		panel6.add(message);
 
 		JPanel panel5 = new JPanel();
 		panel5.setLayout(new BorderLayout());
@@ -96,6 +97,7 @@ public class GUIPanel extends JPanel {
 			} else if (action == clear) {
 				field1.setText("");
 				field2.setText("");
+				message.setText("");
 			}
 		}
 	} // end of ButtonListener
