@@ -91,8 +91,9 @@ public class GUIPanel extends JPanel {
 				
 				// if there are no error messages, 
 				// then it's all clear for formatting
-				if(message.getText().contentEquals("")) {
-					doc.createOutput();
+				if(message.getText().contentEquals("<html></html>")) {
+					if(doc.createOutput() == 1) {
+						message.setText("<html>" + outputFileName + " created.</br></html>");
 					
 				}
 				
