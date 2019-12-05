@@ -12,17 +12,16 @@ public class Formatter {
 	protected String currentLine, spillOver, inputFileName, outputFileName, indexLength;
 	protected BufferedReader reader;
 	protected BufferedWriter outputWriter;
-	protected FileWriter outputFile;
 
 	public Formatter(String inputFileName, String outputFileName) {
 		// check for initial errors
 		String errors = checkInitialErrors(inputFileName, outputFileName);
 		// if there are no initial errors, set inputFileName and outputFileName
-		if(errors == "") {
+		if(errors.contentEquals("<html></html>")) {
 			this.inputFileName = inputFileName;
 			this.outputFileName = outputFileName;
 		}
-		indexLength = "     "; // 4 spaces long
+		indexLength = "    "; // 4 spaces long
 	}
 
 	
@@ -47,26 +46,27 @@ public class Formatter {
 	 * @return: An integer describing the type of error that has occurred.
 	 */
 	public String checkInitialErrors(String inputFileName, String outputFileName) {
-		String errorMessage = "";
+		String errorMessage = "<html>";
 		File scratch = new File(inputFileName);
 		// Check to see if the output file has the .txt suffix
-		if(outputFileName.indexOf(".txt", outputFileName.length()) == -1) {
+		if(outputFileName.indexOf(".txt", outputFileName.length() - 4) == -1) {
 			outputFileName += ".txt";
-			errorMessage += "Output file is not specified as type txt.\n";
+			errorMessage += "<font color=red>Error: Output file is not specified as type txt.</font><br>";
 		}
 		// Check to see if the input file has the .txt suffix
-		if(inputFileName.indexOf(".txt", inputFileName.length()) == -1) {
-			errorMessage += "Input file is not specified as type txt.\n";
+		if(inputFileName.indexOf(".txt", inputFileName.length() - 4) == -1) {
+			errorMessage += "<font color=red>Error: Input file is not specified as type txt.</font><br>";
 		}
 		// Check to see if the input file exists
 		if(!scratch.exists()) {
-			errorMessage += "A input file of this name is not found.\n";
+			errorMessage += "<font color=red>Error: A input file of this name is not found.</font><br>";
 		}
 		if(inputFileName.equalsIgnoreCase(outputFileName)) {
-			errorMessage += "Output file name is the same as the input file name.\n";
+			errorMessage += "<font color=red>Error: Output file name is the same as the input file name.</font><br>";
 		}
 		// None of the conditions above are true. Return "", meaning all is clear
 		
+		errorMessage += "</html>";
 		return errorMessage;
 		
 	}
@@ -74,14 +74,21 @@ public class Formatter {
 	/*
 	 * Sets up the FileWriter and BufferedWriter objects for the output file
 	 */
-	public void createOutput() {
+	public int createOutput() {
+		int status;
 		try {
-			outputFile = new FileWriter(outputFileName);
-			BufferedWriter outputWriter = new BufferedWriter(outputFile);
-		} 
+			outputWriter = new BufferedWriter(new FileWriter(outputFileName));
+			outputWriter.close();
+			status = 1;
+		}
 		catch (IOException e) {
 			e.printStackTrace();
+			status = -1;
 		}
-	}
+		return status;
 
+	}
+	
+	
+	
 }
