@@ -12,9 +12,8 @@ import javax.swing.JTextField;
 
 public class GUIPanel extends JPanel {
 	// components of the panel
-	private JButton start, clear;
-	private JLabel label1, label2;
-	private JLabel message;	// not placed yet
+	private JButton start, clear, quit;
+	private JLabel label1, label2, label3;
 	private JPanel buttons1;
 	private JTextField field1, field2;
 
@@ -25,6 +24,7 @@ public class GUIPanel extends JPanel {
 		// create 3 buttons, start, clear, and color chooser for waves.
 		start = new JButton("Start");
 		clear = new JButton("Clear");
+		quit = new JButton("Quit");
 
 		// initialize JTexfields
 		field1 = new JTextField(10);
@@ -33,12 +33,14 @@ public class GUIPanel extends JPanel {
 		// add a listener to each button
 		start.addActionListener(new ButtonListener());
 		clear.addActionListener(new ButtonListener());
+		quit.addActionListener(new ButtonListener());
 
 		buttons1 = new JPanel();
 		buttons1.setLayout(new GridLayout(2, 1));
 
 		buttons1.add(start);
 		buttons1.add(clear);
+		buttons1.add(quit);
 
 		// create a label for the delay
 		label1 = new JLabel("Input File Name: ");
@@ -50,6 +52,7 @@ public class GUIPanel extends JPanel {
 
 		// create a label for the wave width
 		label2 = new JLabel("Output File Name: ");
+		label3 = new JLabel("Cleared fields");
 
 		JPanel panel4 = new JPanel();
 		panel4.setLayout(new BorderLayout());
@@ -60,6 +63,7 @@ public class GUIPanel extends JPanel {
 		panel6.setLayout(new GridLayout(2, 1));
 		panel6.add(panel3);
 		panel6.add(panel4);
+		panel6.add(label3);
 
 		JPanel panel5 = new JPanel();
 		panel5.setLayout(new BorderLayout());
@@ -77,15 +81,16 @@ public class GUIPanel extends JPanel {
 		public void actionPerformed(ActionEvent event) {
 			Object action = event.getSource();
 
-			if (action == start) {
-				// wPanel.resume();			
+			if (action == start) {// wPanel.resume();
 				String inputFileName = field1.getText();
 				String outputFileName = field2.getText();
 				Formatter doc = new Formatter(inputFileName, outputFileName);
-				message.setText(doc.checkInitialErrors(inputFileName, outputFileName));
+				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
 			} else if (action == clear) {
 				field1.setText("");
 				field2.setText("");
+			} else if (action == quit) {
+				System.exit(0);
 			}
 		}
 	} // end of ButtonListener
