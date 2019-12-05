@@ -22,7 +22,7 @@ public class Formatter {
 			this.inputFileName = inputFileName;
 			this.outputFileName = outputFileName;
 		}
-		indexLength = "     "; // 5 spaces long
+		indexLength = "     "; // 4 spaces long
 	}
 
 	
