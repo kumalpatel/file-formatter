@@ -59,7 +59,7 @@ public class GUIPanel extends JPanel {
 		message = new JLabel();
 
 		JPanel panel6 = new JPanel();
-		panel6.setLayout(new GridLayout(2, 1));
+		panel6.setLayout(new GridLayout(3, 1));
 		panel6.add(panel3);
 		panel6.add(panel4);
 		panel6.add(message);
