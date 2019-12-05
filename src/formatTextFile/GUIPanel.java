@@ -81,8 +81,18 @@ public class GUIPanel extends JPanel {
 				// wPanel.resume();			
 				String inputFileName = field1.getText();
 				String outputFileName = field2.getText();
+				// setup Formatter class
 				Formatter doc = new Formatter(inputFileName, outputFileName);
+				// check for initial errors
 				message.setText(doc.checkInitialErrors(inputFileName, outputFileName));
+				
+				// if there are no error messages, 
+				// then it's all clear for formatting
+				if(message.getText().contentEquals("")) {
+					
+					
+				}
+				
 			} else if (action == clear) {
 				field1.setText("");
 				field2.setText("");

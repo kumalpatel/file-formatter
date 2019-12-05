@@ -1,13 +1,18 @@
 package formatTextFile;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Formatter {
 	protected int total;
 	protected String currentLine, spillOver, inputFileName, outputFileName, indexLength;
+	protected BufferedReader reader;
+	protected BufferedWriter outputWriter;
+	protected FileWriter outputFile;
 
 	public Formatter(String inputFileName, String outputFileName) {
 		// check for initial errors
@@ -22,7 +27,6 @@ public class Formatter {
 
 	
 	public void readFile() {
-		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(inputFileName));
 			String line = reader.readLine();
@@ -61,10 +65,23 @@ public class Formatter {
 		if(inputFileName.equalsIgnoreCase(outputFileName)) {
 			errorMessage += "Output file name is the same as the input file name.\n";
 		}
-		// None of the conditions above are true. Return 0, meaning all is clear
+		// None of the conditions above are true. Return "", meaning all is clear
 		
 		return errorMessage;
 		
+	}
+	
+	/*
+	 * Sets up the FileWriter and BufferedWriter objects for the output file
+	 */
+	public void createOutput() {
+		try {
+			outputFile = new FileWriter(outputFileName);
+			BufferedWriter outputWriter = new BufferedWriter(outputFile);
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
