@@ -1,3 +1,11 @@
+/**
+ * Team Project CSE360
+ * Names: Gabriel Anderson, Kumal Patel, Christopher Campanella, Vincent Li
+ * Class ID: 70642
+ * Description: Initializes the applet.
+ * GitHub URL (via HTTPS): https://github.com/LowRaps/Group_Project.git
+ */
+
 package formatTextFile;
 
 import javax.swing.JApplet;
