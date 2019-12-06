@@ -190,6 +190,7 @@ public class Formatter {
 		String errorMessage = "<html>";
 		File scratch = new File(inputFileName);
 		// Check to see if the input file exists
+		
 		if (!scratch.exists()) {
 			errorMessage += "<font color=red>Error: A input file of this name is not found.</font><br>";
 		}
