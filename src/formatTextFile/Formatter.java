@@ -1,19 +1,16 @@
 /**
  * Team Project CSE360
- * Names: Gabriel Anderson 
+ * Names: Gabriel Anderson, Kumal Patel,  
  * Class ID: 70642
  * Description: Formatter.java is the class that 
  * transforms the inputed text file into a formatted output.
- * GitHub URL (via HTTPS): 
+ * GitHub URL (via HTTPS): https://github.com/LowRaps/Group_Project.git
  */
 
 /**
  * Creates Formatter class that reads an input string from a text file,
  * and converts it into a standardized format.
  * 
- * @author Gabriel Anderson <gander16@asu.edu>
- * @version 1.2
- * @since 1.0
  */
 package formatTextFile;
 
