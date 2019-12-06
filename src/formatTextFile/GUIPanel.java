@@ -1,21 +1,31 @@
 package formatTextFile;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class GUIPanel extends JPanel {
 	// components of the panel
 	private JButton start, clear, quit;
-	private JLabel label1, label2, label3;
-	private JPanel buttons1;
+	private JLabel label1, label2, label3, label4;
+	private JPanel buttons1, panel7;
 	private JTextField field1, field2;
+	private JTextArea area1;
+	private JScrollPane scroll1;
+	
 
 	// Constructor to create all components, add their listener to them,
 	// and arrange them using a layout.
@@ -72,9 +82,24 @@ public class GUIPanel extends JPanel {
 		panel5.setLayout(new BorderLayout());
 		panel5.add(buttons1, BorderLayout.SOUTH);
 		panel5.add(panel6, BorderLayout.CENTER);
-
+		
+		area1 = new JTextArea("Text to be Displayed: ");
+		
+		area1.setForeground(Color.GRAY);
+		area1.setFont(new Font("Sanserif", Font.ITALIC, 12));
+		
+		scroll1 = new JScrollPane(area1); // formatted output
+		label4 = new JLabel("Formatted Output: ");
+		
+		JPanel panel7 = new JPanel();
+		panel7.setLayout(new BorderLayout());
+		panel7.add(label4, BorderLayout.NORTH);
+		panel7.add(scroll1, BorderLayout.CENTER);
+	
+		
 		setLayout(new BorderLayout());
 		add(panel5, BorderLayout.WEST);
+		add(panel7, BorderLayout.CENTER);
 
 	}
 
@@ -92,6 +117,7 @@ public class GUIPanel extends JPanel {
 				// check for initial errors
 				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
 				doc.readFile();
+					
 
 			} else if (action == clear) {
 				field1.setText("");
