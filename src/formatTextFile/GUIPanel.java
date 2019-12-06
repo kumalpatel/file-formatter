@@ -141,6 +141,7 @@ public class GUIPanel extends JPanel {
 			} else if (action == clear) {
 				field1.setText("");
 				field2.setText("");
+				area1.setText("");
 			} else if (action == quit) {
 				System.exit(0);
 				label3.setText("");
