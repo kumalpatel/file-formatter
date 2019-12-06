@@ -118,7 +118,7 @@ public class GUIPanel extends JPanel {
 				// check for initial errors
 				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
 				// if there are no initial errors, begin formatting output
-				if(label3.equals("<html></html>")) {
+				if(label3.getText().equals("<html></html>")) {
 					doc.readFile();	
 					// show output in the text area
 					area1.setForeground(Color.BLACK);
