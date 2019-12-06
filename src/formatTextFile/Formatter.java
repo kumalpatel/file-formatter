@@ -1,6 +1,6 @@
 /**
  * Team Project CSE360
- * Names: Gabriel Anderson, Kumal Patel,  
+ * Names: Gabriel Anderson, Kumal Patel, Christopher Campanella, 
  * Class ID: 70642
  * Description: Formatter.java is the class that 
  * transforms the inputed text file into a formatted output.
