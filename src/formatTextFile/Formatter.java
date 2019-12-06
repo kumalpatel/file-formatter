@@ -18,12 +18,9 @@
 package formatTextFile;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 
@@ -32,8 +29,6 @@ public class Formatter {
 	protected boolean doubleSpaced, block, indent, twoColumn, title;
 	protected String currentString, spillOver, inputFileName, outputFileName, indentLength, extra;
 	protected BufferedReader reader;
-	protected File in;
-	protected File out;
 
 	public Formatter(String inputFile, String outputFile) {
 		indentLength = "     "; // 5 spaces long
@@ -210,23 +205,5 @@ public class Formatter {
 		// None of the conditions above are true. Return "<html></html>", meaning all is clear
 		errorMessage += "</html>";
 		return errorMessage;
-	}
-
-	/*
-	 * Sets up the FileWriter and BufferedWriter objects for the output file
-	 */
-	public int createOutput() {
-		int status;
-		out = new File(outputFileName);
-		try {
-			PrintStream printOut = new PrintStream(out);
-			status = 1;
-		} 
-		catch (FileNotFoundException e) {
-			e.printStackTrace();
-			status = -1;
-		}
-		return status;
-
 	}
 }
