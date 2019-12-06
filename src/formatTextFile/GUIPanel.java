@@ -110,34 +110,33 @@ public class GUIPanel extends JPanel {
 		public void actionPerformed(ActionEvent event) {
 			Object action = event.getSource();
 
-			if (action == start) {// wPanel.resume();
+			if (action == start) {
 				String inputFileName = field1.getText();
 				String outputFileName = field2.getText();
 				// setup Formatter class
 				Formatter doc = new Formatter(inputFileName, outputFileName);
 				// check for initial errors
 				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
-				doc.readFile();
-				
-				// show output in the text area
-				area1.setForeground(Color.BLACK);
-				area1.setFont(new Font("Sansetif", Font.PLAIN, 12));
-
-				String preview = "";
-				File temp = new File(outputFileName);				
-				try {
-					Scanner scanner = new Scanner(temp);
-					while(scanner.hasNextLine()) {
-						preview += scanner.nextLine() + "\n";
+				// if there are no initial errors, begin formatting output
+				if(label3.equals("<html></html>")) {
+					doc.readFile();	
+					// show output in the text area
+					area1.setForeground(Color.BLACK);
+					area1.setFont(new Font("Sansetif", Font.PLAIN, 12));
+					String preview = "";
+					File temp = new File(outputFileName);				
+					try {
+						Scanner scanner = new Scanner(temp);
+						while(scanner.hasNextLine()) {
+							preview += scanner.nextLine() + "\n";
+						}
+						scanner.close();
+					} catch (FileNotFoundException e) {
+						area1.setForeground(Color.RED);
+						preview = "Unable to preview " + outputFileName;
 					}
-					scanner.close();
-				} catch (FileNotFoundException e) {
-					area1.setForeground(Color.RED);
-					preview = "Unable to preview " + outputFileName;
+					area1.setText(preview);
 				}
-				area1.setText(preview);
-				
-				
 			} else if (action == clear) {
 				field1.setText("");
 				field2.setText("");
