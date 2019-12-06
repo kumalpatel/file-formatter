@@ -89,7 +89,6 @@ public class GUIPanel extends JPanel {
 				String outputFileName = field2.getText();
 				// setup Formatter class
 				Formatter doc = new Formatter(inputFileName, outputFileName);
-				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
 				// check for initial errors
 				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
 				doc.readFile();

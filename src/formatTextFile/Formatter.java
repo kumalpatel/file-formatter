@@ -193,6 +193,10 @@ public class Formatter {
 		if (!scratch.exists()) {
 			errorMessage += "<font color=red>Error: An input file of this name is not found.</font><br>";
 		}
+		// Check to see if the input and output file names are the same
+		if (outputFileName.equals(inputFileName)) {
+			errorMessage += "<font color=red>Error: The input and output file names cannot be the same.</font><br>";
+		}
 		// Check to see if the output file has the .txt suffix
 		if (outputFileName.indexOf(".txt", outputFileName.length() -4) == -1) {
 			outputFileName += ".txt";
