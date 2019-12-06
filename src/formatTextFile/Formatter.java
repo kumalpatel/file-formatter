@@ -191,7 +191,7 @@ public class Formatter {
 		File scratch = new File(inputFileName);
 		// Check to see if the input file exists
 		if (!scratch.exists()) {
-			errorMessage += "<font color=red>Error: A input file of this name is not found.</font><br>";
+			errorMessage += "<font color=red>Error: An input file of this name is not found.</font><br>";
 		}
 		// Check to see if the output file has the .txt suffix
 		if (outputFileName.indexOf(".txt", outputFileName.length() -4) == -1) {
