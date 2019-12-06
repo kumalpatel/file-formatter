@@ -87,6 +87,7 @@ public class GUIPanel extends JPanel {
 		
 		area1.setForeground(Color.GRAY);
 		area1.setFont(new Font("Sanserif", Font.ITALIC, 12));
+		area1.setEditable(false);
 		
 		scroll1 = new JScrollPane(area1); // formatted output
 		label4 = new JLabel("Formatted Output: ");
