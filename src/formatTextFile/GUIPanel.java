@@ -36,7 +36,7 @@ public class GUIPanel extends JPanel {
 		quit.addActionListener(new ButtonListener());
 
 		buttons1 = new JPanel();
-		buttons1.setLayout(new GridLayout(2, 1));
+		buttons1.setLayout(new GridLayout(1, 3));
 
 		buttons1.add(start);
 		buttons1.add(clear);

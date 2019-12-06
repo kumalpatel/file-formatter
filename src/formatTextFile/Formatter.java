@@ -59,16 +59,17 @@ public class Formatter {
 				line = reader.readLine();
 				if (line.length() == 2) {
 					checkFlags(line);
-				} else {
+				} 
+				else {
 					if (title) {
 						printTitle(line);
 					}
 					if (twoColumn) {
 						printTwoColumn(line);
-					} else {
+					} 
+					else {
 						printSingleLine(line);
 					}
-
 				}
 
 				if (doubleSpaced) {
