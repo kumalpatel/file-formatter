@@ -124,6 +124,12 @@ public class GUIPanel extends JPanel {
 				// show output in the text area
 				String preview = "";
 				File temp = new File(outputFileName);
+				
+				if(label3.getText().equals("<html></html>"))
+				{
+					area1.setForeground(Color.BLACK);
+					area1.setFont(new Font("Sansetif", Font.PLAIN, 12));
+				}
 				try {
 					Scanner scanner = new Scanner(temp);
 					while(scanner.hasNextLine()) {
