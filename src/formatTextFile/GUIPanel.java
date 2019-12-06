@@ -131,6 +131,7 @@ public class GUIPanel extends JPanel {
 					}
 					scanner.close();
 				} catch (FileNotFoundException e) {
+					area1.setForeground(Color.RED);
 					preview = "Unable to preview " + outputFileName;
 				}
 				area1.setText(preview);
