@@ -2,15 +2,12 @@ package formatTextFile;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -122,14 +119,11 @@ public class GUIPanel extends JPanel {
 				doc.readFile();
 				
 				// show output in the text area
+				area1.setForeground(Color.BLACK);
+				area1.setFont(new Font("Sansetif", Font.PLAIN, 12));
+
 				String preview = "";
-				File temp = new File(outputFileName);
-				
-				if(label3.getText().equals("<html></html>"))
-				{
-					area1.setForeground(Color.BLACK);
-					area1.setFont(new Font("Sansetif", Font.PLAIN, 12));
-				}
+				File temp = new File(outputFileName);				
 				try {
 					Scanner scanner = new Scanner(temp);
 					while(scanner.hasNextLine()) {
