@@ -7,8 +7,11 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -117,8 +120,22 @@ public class GUIPanel extends JPanel {
 				// check for initial errors
 				label3.setText(doc.checkInitialErrors(inputFileName, outputFileName));
 				doc.readFile();
-					
-
+				
+				// show output in the text area
+				String preview = "";
+				File temp = new File(outputFileName);
+				try {
+					Scanner scanner = new Scanner(temp);
+					while(scanner.hasNextLine()) {
+						preview += scanner.nextLine() + "\n";
+					}
+					scanner.close();
+				} catch (FileNotFoundException e) {
+					preview = "Unable to preview " + outputFileName;
+				}
+				area1.setText(preview);
+				
+				
 			} else if (action == clear) {
 				field1.setText("");
 				field2.setText("");
